@@ -1,0 +1,8 @@
+<resources>
+  <string name="app_name">VivoAutoInstallAPK</string>
+  <string name="apk_auto_intall">vivo自动安装apk</string>
+    <string name="main_first_step">1. 输入VIVO账号密码，点击回车符保存</string>
+  <string name="password">密码</string>
+  <string name="main_second_step">2. 开启应用的辅助功能</string>
+  <string name="main_open_access">开启Accessibility</string>
+</resources>

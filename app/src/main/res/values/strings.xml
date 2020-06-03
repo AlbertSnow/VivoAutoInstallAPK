@@ -1,4 +1,8 @@
 <resources>
   <string name="app_name">VivoAutoInstallAPK</string>
   <string name="apk_auto_intall">vivo自动安装apk</string>
+    <string name="main_first_step">1. Input VIVO password, and click enter to save</string>
+  <string name="password">PassWord</string>
+  <string name="main_second_step">2. Turn on this app accessibility function</string>
+  <string name="main_open_access">Open Accessibility</string>
 </resources>
