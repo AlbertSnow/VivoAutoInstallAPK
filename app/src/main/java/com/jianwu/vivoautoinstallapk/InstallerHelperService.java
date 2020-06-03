@@ -9,12 +9,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class InstallerHelperService extends AccessibilityService {
+
+    public static final String SREVICE_PACKAGE = "com.vivo.secime.service";
+
     @Override
     public void onAccessibilityEvent(AccessibilityEvent event) {
         AccessibilityNodeInfo rootNode = getRootInActiveWindow();
         if (rootNode == null) return;
 
-        if (event.getPackageName().equals("com.vivo.secime.service")) {
+        if (SREVICE_PACKAGE.contentEquals(event.getPackageName())) {
             //vivo账号密码
             String password = (String) SharePreferencesUtils.getParam(getApplicationContext(),
                     AppConstants.KEY_PASSWORD, "");
