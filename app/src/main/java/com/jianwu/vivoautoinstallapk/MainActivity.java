@@ -14,29 +14,39 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    private TextInputEditText password;
+    private TextInputEditText passwordInputView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        password = findViewById(R.id.password);
+        passwordInputView = findViewById(R.id.password);
 
-        password.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+        passwordInputView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
                 if (actionId == EditorInfo.IME_ACTION_DONE) {
-                    savePwd();
+                    savePassWord();
                     return true;
                 }
                 return false;
             }
         });
+
+        String initValue = getPassWord();
+        if (initValue != null) {
+            passwordInputView.setText(initValue);
+            passwordInputView.setSelection(initValue.length());
+        }
     }
 
-    private void savePwd() {
-        String pwdStr = password.getText().toString().trim();
+    private String getPassWord() {
+        return SharePreferencesUtils.getParam(getApplication(), AppConstants.KEY_PASSWORD, "");
+    }
+
+    private void savePassWord() {
+        String pwdStr = passwordInputView.getText().toString().trim();
         if (TextUtils.isEmpty(pwdStr)) {
             return;
         }
